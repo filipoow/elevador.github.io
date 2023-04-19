@@ -81,7 +81,31 @@ body {
 
 .botao-container {
     margin-left: 5rem;
-    width: 30rem;
+    width: 20rem;
     height: 16rem;
     background-color: #464646;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.botao {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    background-color: #7a7a7a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao:hover {
+    background-color: #c4c4c4;
+}
+
+.borda-clique {
+    border: .3rem solid #df2e2e;
 }
