@@ -32,9 +32,33 @@ body {
 .elevador {
     width: 100%;
     height: 20%;
-    background-color: #1a1a1a;
+    background-color: #8d8d8d;
     display: flex;
     justify-content: space-between;
+}
+
+.porta-esquerda {
+    width: 50%;
+    height: 100%;
+    background-color: #000000;
+}
+
+.porta-direita {
+    width: 50%;
+    height: 100%;
+    background-color: #000000;
+}
+
+.porta-esquerda-aberta {
+    width: 30%;
+    height: 100%;
+    background-color: #000000;
+}
+
+.porta-direita-aberta {
+    width: 30%;
+    height: 100%;
+    background-color: #000000;
 }
 
 .elevador-inativo {
