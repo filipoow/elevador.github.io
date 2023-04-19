@@ -7,4 +7,57 @@
     font-family: "Montserrat",sans-serif;
 }
 
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.all-container {
+    margin-top: 3rem;
+    width: 60%;
+    height: 40rem;
+    display: flex;
+}
+
+.elevador-container {
+    width: 30%;
+    height: 100%;
+    background-color: #464646;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.elevador {
+    width: 100%;
+    height: 20%;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+}
+
+.elevador-inativo {
+    display: none;
+}
+
+.corredores-container {
+    width: 100%;
+    background-color: #cacaca;
+    display: flex;
+    flex-direction: column;
+}
+
+.corredor {
+    width: 100%;
+    height: 20%;
+    background-color: #bebebe;
+    border-bottom: .15rem solid #464646;
+}
+
+.botao-container {
+    margin-left: 5rem;
+    width: 30rem;
+    height: 16rem;
+    background-color: #464646;
+}
