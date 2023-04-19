@@ -106,6 +106,7 @@ body {
     background-color: #c4c4c4;
 }
 
-#borda-clique {
-    border: .3rem solid #df2e2e;
-}
+.borda-clique {
+    border: 2px solid red;
+  }
+  
