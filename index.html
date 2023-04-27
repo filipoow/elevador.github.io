@@ -1,39 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/scripts/script.js"></script>
-    <title>Elevador</title>
+	<title>Elevador Simulador</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+
+		#elevator {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			height: 300px;
+			width: 100px;
+			border: 1px solid black;
+			padding: 20px;
+			margin: 20px auto;
+			position: relative;
+		}
+
+		#elevator .door {
+			height: 50px;
+			width: 45px;
+			background-color: brown;
+			position: absolute;
+			top: 125px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 2;
+			transition: all 0.5s ease-in-out;
+		}
+
+		#elevator .door.open {
+			width: 0;
+			transition: all 0.5s ease-in-out;
+		}
+
+		#elevator .floor {
+			height: 50px;
+			width: 90px;
+			background-color: grey;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border: 1px solid black;
+		}
+	</style>
 </head>
 <body>
-    <section class="all-container">
-        <section class="elevador-container">
-            <div class="elevador">
-                <div class="porta-esquerda-aberta"></div>
-                <div class="porta-direita-aberta"></div>
-            </div>
-            <div class="elevador-inativo">
-                <div class="porta-esquerda"></div>
-                <div class="porta-direita"></div>
-            </div>
-        </section>
-        <section class="corredores-container">
-            <div class="corredor"></div>
-            <div class="corredor"></div>
-            <div class="corredor"></div>
-            <div class="corredor"></div>
-            <div class="corredor"></div>
-        </section>
-        <section class="botao-container">
-            <div class="botao" id="botao-4"><h1>4</h1></div>
-            <div class="botao" id="botao-3"><h1>3</h1></div>
-            <div class="botao" id="botao-2"><h1>2</h1></div>
-            <div class="botao" id="botao-1"><h1>1</h1></div>
-            <div class="botao" id="botao-t"><h1>T</h1></div>
-        </section>
-    </section>
+	<h1>Elevador Simulador</h1>
+	<div id="elevator">
+		<div class="door"></div>
+		<div class="floor">3</div>
+		<div class="floor">2</div>
+		 <div class="floor">1</div>
+	</div>
+
+	<button onclick="goToFloor(3)">Ir para o 3o andar</button>
+	<button onclick="goToFloor(2)">Ir para o 2o andar</button>
+	<button onclick="goToFloor(1)">Ir para o 1o andar</button>
+
+	<script>
+		let currentFloor = 0;
+		let doorsOpen = false;
+		let elevator = document.getElementById("elevator");
+		let door = elevator.querySelector(".door");
+
+		function goToFloor(floor) {
+			if (currentFloor !== floor) {
+				doorsOpen = false;
+				door.classList.remove("open");
+				moveElevator(floor);
+			}
+		}
+
+		function moveElevator(floor) {
+			setTimeout(function() {
+				if (currentFloor < floor) {
+					currentFloor++;
+					moveElevator(floor);
+				} else if (currentFloor > floor) {
+					currentFloor--;
+					moveElevator(floor);
+				} else {
+					doorsOpen = true;
+					door.classList.add("open");
+				}
+			}, 1000);
+		}
+
+		setInterval(function() {
+			if (doorsOpen) {
+				door.classList.add("open");
+			} else {
+				door.classList.remove("open");
+			}
+		}, 100);
+	</script>
 </body>
 </html>
